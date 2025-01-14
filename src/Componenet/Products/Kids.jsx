@@ -1,12 +1,10 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import all_product from '../Componenet/Assets/all_product';
-import MenImg from '../Componenet/Assets/banner_mens.png';
-function Men() {
-  
-  let imgData=all_product;
-
-  return (
+import all_product from '../Assets/all_product';
+import MenImg from '../Assets/banner_kids.png';
+function Kids() {
+  const imgData=all_product;
+   return (
     <>
       <div className='banner-w'>
         <img src={MenImg} alt="" />
@@ -15,7 +13,9 @@ function Men() {
                 <div className="pop-women-img">
             <div className="pop-women2-img">
               {imgData.map((img) => (
-                img.category === "men" && (
+                img.category === "kid" && (
+                  <NavLink style={{textDecoration:"none",color:"black"}} to={`/product/${img.id}`}>
+
                   <div key={img.id} className="product-img">
                     <img src={img.image} alt="" />
                     <div className="details">
@@ -24,11 +24,10 @@ function Men() {
                         <span className="new">$ {img.new_price}</span>
                         <span className="old">${img.old_price}</span>
                       </div>
-                      <NavLink to={`/product/${img.id}`}>
-                    View Product
-                  </NavLink>
+
                     </div>
                   </div>
+                  </NavLink>
                 )
               ))}
 
@@ -41,4 +40,4 @@ function Men() {
   );
 }
 
-export default Men;
+export default Kids

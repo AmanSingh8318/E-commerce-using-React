@@ -1,15 +1,20 @@
-import React from 'react';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import React, { memo, useContext } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import logoImage from '../Assets/logo_big.png';
-import "./Header.css";
+import { StoreContext } from '../Store/store';
+import './Header.css';
 
-function Header({ isLogged, logout }) {
-  const navigate = useNavigate();
-// console.log("login",isLogged);
-// console.log("logout is",logout);
+const Header = memo(() => {
 
+    const {login,logout,userData}=useContext(StoreContext);
 
-return (
+  console.log(login);
+  console.log(logout);
+  // console.log(userData);
+  
+  
+  
+  return (
     <header>
       <nav className='nav'>
         <div className='logo'>
@@ -18,7 +23,7 @@ return (
             <p>SHOPPER</p>
           </Link>
         </div>
-        <ul className='ul'>
+        <ul className="ul">
           <li>
             <NavLink to="/" className={({ isActive }) => (isActive ? "active" : "deactive")}>
               Shop
@@ -40,17 +45,32 @@ return (
             </NavLink>
           </li>
         </ul>
+        <i className="fa-solid fa-bars-staggered navs" id="bar" onClick={(active) => { 
+        }}></i>
+
         <div className='cart'>
           <NavLink to="/cart" className={({ isActive }) => (isActive ? "active" : "deactive")}>
-            <i className="fas fa-shopping-cart"></i>
+            <i className="fas fa-shopping-cart" style={{marginRight:"1rem"}}></i>
           </NavLink>
-                {isLogged ?
-                <button className='btn' onClick={logout}>Logout</button>
-                : <button className='btn' onClick={()=>navigate("/Login")}>Login</button>
-                }
+
+          {userData ? (
+            <>
+              <span  style={{fontWeight:"800",marginLeft:"2rem"}}>Welcome {userData.name}</span>
+              <i  className='user-icon'></i>
+
+              <button className='btn' onClick={logout}>Logout</button>
+
+            </>
+          ) : (
+            <NavLink to='/login' className={({ isActive }) => (isActive ? "active" : "deactive")}>
+              <button className='btn'>Login / Signup</button>
+            </NavLink>
+          )}
+
         </div>
       </nav>
     </header>
   );
-}
+});
+
 export default Header;

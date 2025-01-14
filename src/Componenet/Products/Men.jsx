@@ -1,10 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import all_product from '../Componenet/Assets/all_product';
-import MenImg from '../Componenet/Assets/banner_kids.png';
-function Kids() {
-
+import all_product from '../Assets/all_product';
+import MenImg from '../Assets/banner_mens.png';
+function Men() {
+  
   let imgData=all_product;
+
   return (
     <>
       <div className='banner-w'>
@@ -14,20 +15,26 @@ function Kids() {
                 <div className="pop-women-img">
             <div className="pop-women2-img">
               {imgData.map((img) => (
-                img.category === "kid" && (
+                img.category === "men" && (
+                  
+                    <NavLink style={{textDecoration:"none",color:"black"}} to={`/product/${img.id}`}>
                   <div key={img.id} className="product-img">
                     <img src={img.image} alt="" />
                     <div className="details">
-                      <p>{img.name}</p>
-                      <div className="price">
+                    <p>
+                         {img.name}
+                            </p>    
+                          <div className="price">
                         <span className="new">$ {img.new_price}</span>
                         <span className="old">${img.old_price}</span>
                       </div>
-                      <NavLink to={`/product/${img.id}`}>
+                      {/* <NavLink to={`/product/${img.id}`}>
                     View Product
-                  </NavLink>
+                  </NavLink> */}
                     </div>
                   </div>
+                  </NavLink>
+
                 )
               ))}
 
@@ -40,4 +47,4 @@ function Kids() {
   );
 }
 
-export default Kids
+export default Men;

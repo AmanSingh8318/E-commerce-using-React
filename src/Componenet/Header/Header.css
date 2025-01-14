@@ -1,13 +1,14 @@
 header{
     height: 15vh;
-    background-color: #d1a2a2;
+    background-color: #cec5d6;
     padding: 20px;
     box-sizing: border-box;
-    /* border: 5px solid black; */
     position: sticky;
         top: 0;
         overflow: hidden;
+        overflow-x: hidden;
 }
+
 .nav{
     display: flex;
     justify-content: flex-start;
@@ -16,19 +17,21 @@ header{
 }
 .ul {
   display: flex;
-  margin-left: 27rem;
+  margin-left: 22rem;
   gap: 2rem;
   justify-content: center;
   align-items: center;
 }
 .ul li{
     list-style-type: none;
-    font-weight: 600;
+    font-weight: 800;
     transition: color 0.3s ease;
     cursor: pointer;
-    color: #242323;
+    color: #0a0a0a;
+    font-size: 20px;
 
 }
+
 .ul li a{
     text-decoration: none;
 
@@ -50,25 +53,27 @@ header{
 }
 .btn{
     padding: 10px 20px;
-    background-color: #4CAF50;
+    background-color: #ecb009;
     color: white;
-    border: none;
+    border: none; 
     cursor: pointer;
     border-radius: 50px;
     transition: background-color 0.3s ease;
   margin-left: 6rem;
+  font-size: 16px;
 }
 .cart{
     margin-left: 1rem;
     cursor: pointer;
     border: none;
+    margin-top: 0.5rem;
     border-radius: 50px;
-    padding: 10px 20px;
+    padding: 10px 25px;
     transition: background-color 0.3s ease;
 }
-.cart:hover{
+/* .cart:hover{
     background-color: #45a049;
-}
+} */
 .cart i{
     font-size: 1.6rem;
     color: #0e0f0e;
@@ -76,7 +81,7 @@ header{
 /* Active */
 
 .active{
-    color: rgb(230, 48, 16);
+    color: rgb(228, 41, 8);
     text-decoration:underline;
     text-shadow: #0c0c0c;
 }
@@ -88,6 +93,32 @@ header{
     align-items: center;
 }
 .logo1 p{
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   font-weight: 700;
+  color: rgb(211, 103, 8);
+}
+.navs{
+    display: none;
+}
+@media screen and (max-width: 992px){
+    .ul{
+        display: none;
+     }
+    .navs{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: fixed;
+        top: 0;
+        right: -400px;
+        height: 100vh;
+        width: 40%;
+        background-color:#E3E6F3;
+        box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+        padding: 80px 0px 0px 10px;
+        transition: 0.4s;
+
+    }
+
 }

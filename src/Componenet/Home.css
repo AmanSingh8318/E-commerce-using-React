@@ -1,12 +1,15 @@
 body{
     background-color:rgba(14, 13, 13, 0.067);
     overflow-x: hidden;
+    /* overflow: hidden; */
+        /* overflow-y: hidden;  */
 
 }
 *{
   margin: 0;
   padding: 0;
   font-family: 'Poppins',sans-serif,Arial, Helvetica, sans-serif;
+  
 }
 
 .main{
@@ -17,6 +20,7 @@ body{
     background-color: #a6d6c4;
     /* background: linear-gradient(to bottom, #9c9797, #666664, #f36969);     */
     padding: 20px;
+    /* box-shadow: 10px 20px 0px 20px rgba(0,0,0,0.8); */
 }
 .text{
 margin-left: 13rem;
@@ -126,6 +130,7 @@ flex-wrap: wrap;
     flex-direction: row;
     gap: 0.8rem;
     margin-top: 0.5rem;
+    flex-wrap: wrap;
 }
 
 .new{
@@ -545,29 +550,47 @@ flex-direction: column;
 
 /* Login CSS */
 
-.login-main {
-  max-width: 300px;
-  margin: 40px auto;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+/*  */
+.formsub{
+  padding: 0.5rem;
+  width: 30%;
+  height: 65vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 33rem;
+  margin-top: 5rem;
+  box-shadow: 20px 40px 80px  rgba(139, 89, 89, 0.8);
+  border-radius: 25px;
+  border: 2px solid white;
 }
+.formsub h2{
+  font-size: 39px;
+  font-weight:bolder;
+  color: #0f0f0f;
+  margin-bottom: 2rem;
 
-.main-log {
+}
+.formsub form{
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0.5rem;
+  width: 90%;
+
 }
 
 input[type="name"], input[type="email"], input[type="password"] {
   width: 100%;
-  height: 20px;
+  height: 30px;
   margin-bottom: 20px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 8px;
-
+  font-size: large;
+  color: #0c0c0c;
+  font-weight: 800;
 }
 input[type="name"]:hover{
   border: 1px solid #32ac1a;
@@ -584,18 +607,19 @@ input[type="password"]:hover{
 
 
 input[type="submit"] {
-  width: 100%;
-  height: 40px;
-  background-color: #4CAF50;
+  width: 80%;
+  height: 60px;
+  background-color: #fc1807;
   color: #fff;
   padding: 10px;
   border: none;
-  border-radius: 5px;
+  border-radius: 25px;
   cursor: pointer;
+  font-size: larger;
 }
 
 input[type="submit"]:hover {
-  background-color: #3e8e41;
+  background-color: #c50e0e;
 }
 
 .error {
@@ -707,3 +731,118 @@ input[type="submit"]:hover {
 .product-btn button:hover {
   background-color: #3e8e41;
 }
+/* Desing search box */
+.inptext{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-left: 2rem;
+}
+.inptext input{
+  height: 1.8rem;
+  width: 13rem;
+  border-radius: 10px;
+  border: none;
+  background-color: #f7f7f7;
+  padding: 0.3rem;
+}
+.inptext input::placeholder{
+  color: #ccc;
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-align: center;
+  transition: color 0.3s ease;
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+.inp-btn{
+  display: flex;
+  justify-content: center;
+}
+.inp-btn  button{
+  background-color:rgb(179, 85, 4);
+  padding: 5px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.inp-btn  button:hover{
+  background-color: #db8605;
+  transition: background-color 0.3s ease;
+  color: #fff;
+}
+/*  cart section design */
+.card {
+  width: 35%;
+  margin: 20px auto;
+  padding: 20px;
+  height: 40vh;
+  border: 1px solid #ddd;
+  margin-top: 5rem;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 1);
+  border-color: thistle;
+}
+
+.card-header {
+  background-color: #fcfafa;
+  padding: 10px;
+  border-bottom: 5px solid #ddd;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+}
+  .user-icon {
+    font-size: 24px;
+    margin-right: 10px;
+  }
+  
+  .user-icon::before {
+    content: "\1F464"; /* User icon Unicode character */
+  }
+
+
+.card-header h2 {
+  margin: 0;
+}
+
+.card-body {
+  padding: 20px;
+  font-size: large;
+  color: #f0950c;
+
+}
+
+.card-footer {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-top: 5px solid #e2acac;
+  text-align: center;
+}
+
+.card-footer button {
+  background-color: #e72b0a;
+  color: #fff;
+  padding: 15px 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+  margin-top: 1rem;
+}
+
+.card-footer button:hover {
+  background-color: #3e8e41;
+}
+.user-icon {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.user-icon::before {
+  content: "\1F464"; /* User icon Unicode character */
+}
+/* .userdata-nav{
+  font-size: 18px;
+} */

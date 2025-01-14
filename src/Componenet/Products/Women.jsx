@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import all_product from '../Componenet/Assets/all_product';
-import MenImg from '../Componenet/Assets/banner_women.png';
+import all_product from '../Assets/all_product';
+import MenImg from '../Assets/banner_women.png';
 function Kids() {
   
   let imgData=all_product;
@@ -17,6 +17,8 @@ function Kids() {
               
                  {imgData.map((img) => (
                   img.category === "women" && (
+                    <NavLink style={{textDecoration:"none",color:"black"}} to={`/product/${img.id}`}>
+
                     <div key={img.id} className="product-img">
                       <img src={img.image} alt="" />
                       <div className="details">
@@ -25,11 +27,10 @@ function Kids() {
                           <span className="new">$ {img.new_price}</span>
                           <span className="old">${img.old_price}</span>
                         </div>
-                        <NavLink to={`/product/${img.id}`}>
-                    View Product
-                  </NavLink>
+
                       </div>
                     </div>
+                    </NavLink>
                   )
                 ))}
               

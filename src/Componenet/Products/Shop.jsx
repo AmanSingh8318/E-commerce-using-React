@@ -1,16 +1,19 @@
 // import './Header.css'
 import { useState } from "react"
 import { NavLink, useNavigate } from "react-router-dom"
-import Arrow from "../Componenet/Assets/arrow.png"
-import exclusiveImg from '../Componenet/Assets/exclusive_image.png'
-import HelloIcon from '../Componenet/Assets/hand_icon.png'
-import HeroImg from '../Componenet/Assets/hero_image.png'
-import data_product from "./Assets/data_product"
-import new_collections from "./Assets/new_collections"
-import "./Home.css"
+// import Arrow from "../Componenet/Assets/arrow.png"
+import Arrow from '../Assets/arrow.png'
+import data_product from "../Assets/data_product"
+import exclusiveImg from '../Assets/exclusive_image.png'
+import HelloIcon from '../Assets/hand_icon.png'
+import HeroImg from '../Assets/hero_image.png'
+import new_collections from "../Assets/new_collections"
+import "../Home.css"
+import { useStoreData } from "../Store/store"
 function Shop() {
   const [email,setemail]=useState("");
-
+  
+  const{subscribeus,empty_email}=useStoreData();
     const imgRes=data_product;
     const newCollection_data=new_collections;
     const navigate=useNavigate();
@@ -19,15 +22,17 @@ function Shop() {
       navigate('/Women')
     }
 
+      
     function subscribe(){
       if (email==="") {
-        alert("Please enter the email to subscribe")
+        empty_email();
       }else {
         setTimeout(()=>{
-          alert("Thank you for subscribing")
+          window.scroll({top:0,left:0,behavior:"smooth"})
           setemail("")
-            navigate('/')
-        },1000)
+        },4000)
+        subscribeus();
+
       }
       
       console.log(email)
@@ -49,7 +54,9 @@ function Shop() {
                           <h2>POPULAR IN WOMEN</h2>
                           <div className="pop-women2">
                           {imgRes.map((img)=>(
+                             
                             <div key={img.id} className="product">
+                              
                               <img src={img.image} alt="" />
                                 <div className="details">
                                     <p >{img.name}</p>
@@ -58,17 +65,13 @@ function Shop() {
                                             <span className="new">$ {img.new_price}</span>
                                             <span className="old">${img.old_price}</span>
                                             </div> 
-                                            <NavLink to={`/product/${img.id}`}>
+                                            <NavLink style={{textDecoration:"none",color:"orange"}} to={`/product/${img.id}`}>
                                             <p className="view">View Product</p>
-                                                               </NavLink>
-                                              
+                                            </NavLink>                          
                                 </div>
                             </div>
-
-
-                          ))}
+                             ))};
                           </div>
-                         
                     </div>
                   </section>
 
@@ -79,6 +82,7 @@ function Shop() {
                             <h3>Offers For You</h3>
                             <p> ONLY ON BEST SELLERS PRODUCTS</p>
                             <button className="ex-btn" onClick={handleCheck}>Check now</button>
+                            {window.scroll({top:0,left:0, behavior:"smooth"})}
                       </div>
                       <div className="ex-img">
                         <img src={exclusiveImg} alt="" />
@@ -91,20 +95,21 @@ function Shop() {
              <h2> NEW COLLECTIONS</h2>
                 <div className="new-collection-2">
                   {newCollection_data.map((img)=>(
+                    <NavLink style={{textDecoration:"none",color:"black"}} to={`/product/${img.id}`}>
+
                     <div key={img.id} className="new-product">
                       <img src={img.image} alt="" />
                       <div className="new-details">
                         
                           <p>{img.name}</p>
                           <div className="new-price">
-                            <span className="new-new">$ {img.new_price}</span>
-                            <span className="new-old">$ {img.old_price}</span>
+                            <span className="new-new" style={{fontSize:"16px"}}>$ {img.new_price}</span>
+                            <span className="new-old"style={{fontSize:"16px"}}>$ {img.old_price}</span>
                           </div>
                       </div>
-                      <NavLink to={`/product/${img.id}`}>
-                    View Product
-                  </NavLink>
+                   
                     </div>
+                    </NavLink>
                   ))}
                 </div>
             </div>

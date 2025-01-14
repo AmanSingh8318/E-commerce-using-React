@@ -16,9 +16,9 @@ function Footer() {
               <li>Contact</li>
           </ul>
           <div className='icon'>
-          <i class="fa-brands fa-instagram"></i> 
-          <i class="fa-brands fa-pinterest"></i>        
-          <i class="fa-brands fa-whatsapp"></i>        
+          <i className="fa-brands fa-instagram"></i> 
+          <i className="fa-brands fa-pinterest"></i>        
+          <i className="fa-brands fa-whatsapp"></i>        
             </div>
             <div className='copy'>
             <p>Copyright@2024</p>
